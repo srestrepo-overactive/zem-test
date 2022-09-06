@@ -1,7 +1,7 @@
 import GrayButton from "../GrayButton";
 import ProgressBar from "../ProgressBar";
 import Thumb from "../Thumb";
-import { CardContainer } from "./Card.styles";
+import { CardContainer, ThumbStyled } from "./Card.styles";
 
 function Card(props) {
   return (
@@ -14,12 +14,28 @@ function Card(props) {
         </div>
         <div>
           {props.descriptionVote}
-          <Thumb type="thumbs-up" onClick={props.handlerpositiveVote} />
-          <Thumb type="thumbs-down" onClick={props.handlerNegativeVote} />
-          <GrayButton onClick={props.voteNow}>Vote now</GrayButton>
+          <ThumbStyled
+            type="thumbs-up"
+            onClick={props.handlerpositiveVote}
+          />{" "}
+          <ThumbStyled
+            type="thumbs-down"
+            onClick={props.handlerNegativeVote}
+          />
+          <GrayButton
+            disabled={
+              !props.positiveVoteSelected && !props.negativeVoteSelected
+            }
+            onClick={props.voteNow}
+          >
+            Vote now
+          </GrayButton>
         </div>
       </div>
-      <ProgressBar winPercentage={props.winPercentage} lostPercentage={props.lostPercentage} />
+      <ProgressBar
+        winPercentage={props.winPercentage}
+        lostPercentage={props.lostPercentage}
+      />
     </CardContainer>
   );
 }

@@ -6,6 +6,7 @@ function Thumb(props) {
       aria-label={props.type}
       type={props.type}
       onClick={props.onClick}
+      className={props.className}
     >
       <ThumbImg src={`assets/img/${props.type}.svg`} alt={props.type} />
     </ThumbButton>
