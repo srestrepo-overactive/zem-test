@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Thumb from "../Thumb/index";
+import Thumb from "../Thumb";
 
 export const CardContainer = styled.div`
   border: 1px solid black;
@@ -8,7 +8,5 @@ export const CardContainer = styled.div`
 `;
 
 export const ThumbStyled = styled(Thumb)`
-  &:focus {
-    border: 3px solid white;
-  }
+  border: ${(props) => (props.checked ? "3px solid white" : "none")};
 `;

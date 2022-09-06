@@ -17,10 +17,12 @@ function Card(props) {
           <ThumbStyled
             type="thumbs-up"
             onClick={props.handlerpositiveVote}
+            checked={props.positiveVoteSelected}
           />{" "}
           <ThumbStyled
             type="thumbs-down"
             onClick={props.handlerNegativeVote}
+            checked={props.negativeVoteSelected}
           />
           <GrayButton
             disabled={
