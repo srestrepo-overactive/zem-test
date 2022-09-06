@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Card from "../../components/Card/index";
-import { getPercentageByTwoNumbers } from "../../utils/index";
 
 const dataServer = [
   {
@@ -84,9 +83,17 @@ const dataServer = [
 ];
 
 function CardList() {
+  const [dataCopy, setDataCopy] = useState(
+    dataServer.map((elem) => ({
+      ...elem,
+      positiveVoteSelected: false,
+      negativeVoteSelected: false,
+      isVoteFinished: false,
+    }))
+  );
+
   const handlerVotes = (vote, positiveVote, negativeVote) => {
     const newState = dataCopy.map((obj) => {
-      // 👇️ if id equals 2, update country property
       if (obj.id === vote.id) {
         return {
           ...obj,
@@ -95,41 +102,54 @@ function CardList() {
         };
       }
 
-      // 👇️ otherwise return object as is
+      return obj;
+    });
+
+    setDataCopy(newState);
+    console.log(newState);
+  };
+
+  const restartOrAddVote = (obj) => {
+    const newVotes = {
+      positive: obj.positiveVoteSelected
+        ? obj.isVoteFinished
+          ? obj.votes.positive - 1
+          : obj.votes.positive + 1
+        : obj.votes.positive,
+      negative: obj.negativeVoteSelected
+        ? obj.isVoteFinished
+          ? obj.votes.negative - 1
+          : obj.votes.negative + 1
+        : obj.votes.negative,
+    };
+    return newVotes;
+  };
+
+  const voteNow = (vote) => {
+    const newState = dataCopy.map((obj) => {
+      if (obj.id === vote.id) {
+        return {
+          ...obj,
+          votes: restartOrAddVote(obj),
+          isVoteFinished: !obj.isVoteFinished,
+        };
+      }
+
       return obj;
     });
 
     setDataCopy(newState);
   };
 
-  const [dataCopy, setDataCopy] = useState(
-    dataServer.map((elem) => ({
-      ...elem,
-      positiveVoteSelected: false,
-      negativeVoteSelected: false,
-    }))
-  );
-
   return (
     <div>
       {dataCopy.map((elem) => (
         <Card
           key={elem.name}
-          celebrityName={elem.name}
-          celebrityDescription={elem.description}
-          winPercentage={`${getPercentageByTwoNumbers(
-            elem.votes.positive,
-            elem.votes.positive + elem.votes.negative
-          )}%`}
-          lostPercentage={`${getPercentageByTwoNumbers(
-            elem.votes.negative,
-            elem.votes.positive + elem.votes.negative
-          )}%`}
+          vote={elem}
           handlerpositiveVote={() => handlerVotes(elem, true, false)}
           handlerNegativeVote={() => handlerVotes(elem, false, true)}
-          positiveVoteSelected={elem.positiveVoteSelected}
-          negativeVoteSelected={elem.negativeVoteSelected}
-          voteNow={() => alert("vote now")}
+          voteNow={() => voteNow(elem)}
         />
       ))}
     </div>
