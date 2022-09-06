@@ -1,30 +1,20 @@
 import { useEffect, useState } from "react";
 import Card from "../../components/Card/index";
+import { useGetCelebrities } from "../../customHooks/celebrities/useGetCelebrities";
+const data = require("../../models/celebrities/index.json");
 
 function CardList() {
-  const [dataServer, setDataServer] = useState([]);
-  const [isLoadingServer, setIsloadingServer] = useState(false);
 
+  const isLoadingServer = false;
+  const [dataServer, setDataServer] = useState([]);
   useEffect(() => {
-    fetch(
-      "https://snes4alom3.execute-api.us-east-1.amazonaws.com/get-celebrities"
-    )
-      .then((response) => {
-        setIsloadingServer(true);
-        if (!response.ok) {
-          return Promise.reject(response);
-        }
-        return response.json();
-      })
-      .then((result) => {
-        setDataServer(result.Items);
-        setIsloadingServer(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setIsloadingServer(false);
-      });
+    setDataServer(data.data);
   }, []);
+
+  // const { dataServer, isLoadingServer, setDataServer } = useGetCelebrities(
+  //   "https://snes4alom3.execute-api.us-east-1.amazonaws.com/get-celebrities"
+  // );
+
 
   const handlerVotes = (vote, positiveVote, negativeVote) => {
     const newState = dataServer.map((obj) => {
