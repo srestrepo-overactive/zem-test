@@ -1,9 +1,9 @@
-import './App.css';
+import CardList from "./containers/CardList";
 
 function App() {
   return (
-    <div className="App">
-      hola App
+    <div>
+      <CardList />
     </div>
   );
 }
