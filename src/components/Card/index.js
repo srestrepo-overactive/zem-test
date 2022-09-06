@@ -38,17 +38,28 @@ function Card(props) {
 
   const renderGrayButton = () => (
     <GrayButton
-      disabled={!vote.positiveVoteSelected && !vote.negativeVoteSelected && !vote.isVoteFinished}
+      disabled={
+        !vote.positiveVoteSelected &&
+        !vote.negativeVoteSelected &&
+        !vote.isVoteFinished
+      }
       onClick={props.voteNow}
     >
       {vote.isVoteFinished ? "Vote again" : "Vote now"}
     </GrayButton>
   );
 
+  const renderThumbWinner = () =>
+    vote.votes.positive >= vote.votes.negative ? (
+      <Thumb type="thumbs-up" />
+    ) : (
+      <Thumb type="thumbs-down" />
+    );
+
   return (
     <CardContainer>
+      {renderThumbWinner()}
       <div>
-        <Thumb type="thumbs-up" />
         <div>
           <h1>{vote.name}</h1>
           <p>{vote.description}</p>
