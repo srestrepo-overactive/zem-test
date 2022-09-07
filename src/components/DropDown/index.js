@@ -6,8 +6,8 @@ function DropDown(props) {
     <select className={className} ref={selectref} {...props}>
       {items.map((elem) => {
         return (
-          <option key={elem.value} value={elem.name}>
-            {elem.value}
+          <option key={elem.name} value={elem.value}>
+            {elem.name}
           </option>
         );
       })}

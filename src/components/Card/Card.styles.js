@@ -5,10 +5,21 @@ const commonStylesThumb = () => `width: 40px;
 height: 40px;
 padding: 8px;`;
 
+const gridStyles = () => `display: grid;
+    grid-template-columns: 350px 350px 350px;
+    grid-gap: 31px;
+`;
+
+const bodyGridStyles = () => `justify-content: space-between;
+flex-direction: column;`;
+
+const actionGridStyles = () => `align-items: self-end;`;
+
 export const CardContainer = styled.div`
   border: 1px solid black;
   margin-bottom: 20px;
   background-color: gray;
+  ${(props) => (props.typeChooseView === "grid" ? gridStyles() : null)}
 `;
 
 export const ThumbStyled = styled(Thumb)`

@@ -92,7 +92,7 @@ function Card(props) {
   );
 
   return (
-    <CardContainer>
+    <CardContainer typeChooseView={props.typeChooseView}>
       <CardBodyContainer>
         <CardLeftSide>
           {renderThumbWinner()}

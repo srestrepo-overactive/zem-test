@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import Card from "../../components/Card/index";
+import { useSelector } from 'react-redux';
 import { useGetCelebrities } from "../../customHooks/celebrities/useGetCelebrities";
 const data = require("../../models/celebrities/index.json");
 
 function CardList() {
-
   const isLoadingServer = false;
+  const typeChooseView = useSelector((state) => state.chooseView.type);
   const [dataServer, setDataServer] = useState([]);
   useEffect(() => {
     setDataServer(data.data);
@@ -71,6 +72,7 @@ function CardList() {
         vote={elem}
         handlerpositiveVote={() => handlerVotes(elem, true, false)}
         handlerNegativeVote={() => handlerVotes(elem, false, true)}
+        typeChooseView={typeChooseView}
         voteNow={() => voteNow(elem)}
       />
     ));

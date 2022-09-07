@@ -1,15 +1,18 @@
 import { useRef } from "react";
 import DropDown from "../../components/DropDown";
+import { useDispatch } from "react-redux";
+import { changeType } from "../../models/redux/chooseView/reducer";
 
 function ChooseView() {
   const getDefaultItems = () => [
     { name: "List", value: "list" },
     { name: "Grid", value: "grid" },
   ];
+  const dispatch = useDispatch();
   const selectRef = useRef("");
 
   const setDefaultView = () => {
-    console.log(selectRef.current.value);
+    dispatch(changeType(selectRef.current.value));
   };
 
   return (
