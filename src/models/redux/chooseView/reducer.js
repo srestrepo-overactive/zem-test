@@ -1,9 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 export const chooseViewSlice = createSlice({
-  name: "chooseView",
+  name: 'chooseView',
   initialState: {
-    type: "list",
+    type: 'list'
   },
   reducers: {
     changeType: (state, action) => {
@@ -13,8 +13,8 @@ export const chooseViewSlice = createSlice({
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
       state.type = payload;
-    },
-  },
+    }
+  }
 });
 
 // Action creators are generated for each case reducer function

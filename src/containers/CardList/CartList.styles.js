@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const gridStyles = () => `display: grid;
     grid-template-columns: repeat(3, 350px);
@@ -6,5 +6,5 @@ const gridStyles = () => `display: grid;
 `;
 
 export const CardListContainer = styled.div`
-  ${(props) => (props.typeChooseView === "grid" ? gridStyles() : null)}
+  ${(props) => (props.typeChooseView === 'grid' ? gridStyles() : null)}
 `;

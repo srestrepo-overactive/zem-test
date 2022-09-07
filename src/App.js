@@ -1,5 +1,5 @@
-import CardList from "./containers/CardList";
-import ChooseView from "./containers/ChooseView";
+import CardList from './containers/CardList';
+import ChooseView from './containers/ChooseView';
 
 function App() {
   return (

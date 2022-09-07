@@ -1,6 +1,6 @@
-import { getPercentageByTwoNumbers } from "../../utils";
-import GrayButton from "../GrayButton";
-import ProgressBar from "../ProgressBar";
+import { getPercentageByTwoNumbers } from '../../utils';
+import GrayButton from '../GrayButton';
+import ProgressBar from '../ProgressBar';
 import {
   CardActions,
   CardBodyContainer,
@@ -11,8 +11,8 @@ import {
   CardThumbsContainer,
   ContainerInfoVote,
   StyledThumbWinner,
-  ThumbStyled,
-} from "./Card.styles";
+  ThumbStyled
+} from './Card.styles';
 
 function Card(props) {
   const { vote } = props;
@@ -48,14 +48,9 @@ function Card(props) {
 
   const renderGrayButton = () => (
     <GrayButton
-      disabled={
-        !vote.positiveVoteSelected &&
-        !vote.negativeVoteSelected &&
-        !vote.isVoteFinished
-      }
-      onClick={props.voteNow}
-    >
-      {vote.isVoteFinished ? "Vote again" : "Vote now"}
+      disabled={!vote.positiveVoteSelected && !vote.negativeVoteSelected && !vote.isVoteFinished}
+      onClick={props.voteNow}>
+      {vote.isVoteFinished ? 'Vote again' : 'Vote now'}
     </GrayButton>
   );
 

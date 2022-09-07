@@ -1,13 +1,14 @@
-import Card from "../../components/Card/index";
-import { useSelector } from "react-redux";
-import { useGetCelebrities } from "../../utils/customHooks/celebrities/useGetCelebrities";
-import { CardListContainer } from "./CartList.styles";
+import Card from '../../components/Card/index';
+import { useSelector } from 'react-redux';
+import { useGetCelebrities } from '../../utils/customHooks/celebrities/useGetCelebrities';
+import { CardListContainer } from './CartList.styles';
 
 function CardList() {
   const typeChooseView = useSelector((state) => state.chooseView.type);
 
   const { dataServer, isLoadingServer, setDataServer } = useGetCelebrities(
-    "https://snes4alom3.execute-api.us-east-1.amazonaws.com/get-celebrities", true
+    'https://snes4alom3.execute-api.us-east-1.amazonaws.com/get-celebrities',
+    true
   );
 
   const handlerVotes = (vote, positiveVote, negativeVote) => {
@@ -16,7 +17,7 @@ function CardList() {
         return {
           ...obj,
           positiveVoteSelected: positiveVote,
-          negativeVoteSelected: negativeVote,
+          negativeVoteSelected: negativeVote
         };
       }
 
@@ -37,7 +38,7 @@ function CardList() {
         ? obj.isVoteFinished
           ? obj.votes.negative - 1
           : obj.votes.negative + 1
-        : obj.votes.negative,
+        : obj.votes.negative
     };
     return newVotes;
   };
@@ -48,7 +49,7 @@ function CardList() {
         return {
           ...obj,
           votes: restartOrAddVote(obj),
-          isVoteFinished: !obj.isVoteFinished,
+          isVoteFinished: !obj.isVoteFinished
         };
       }
 

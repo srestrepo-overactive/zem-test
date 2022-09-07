@@ -1,15 +1,12 @@
-import { useCallback, useEffect, useState } from "react";
-const dataJson = require("../../../models/celebrities/index.json");
+import { useCallback, useEffect, useState } from 'react';
+const dataJson = require('../../../models/celebrities/index.json');
 
 export const useGetCelebrities = (url, useMock = false) => {
   const [dataServer, setDataServer] = useState([]);
   const [error, setError] = useState(false);
   const [isLoadingServer, setIsLoadingServer] = useState(false);
 
-  const getCelebritiesFromMock = useCallback(
-    () => setDataServer(dataJson.data),
-    []
-  );
+  const getCelebritiesFromMock = useCallback(() => setDataServer(dataJson.data), []);
 
   const getCelebritiesFromServer = useCallback(
     () =>

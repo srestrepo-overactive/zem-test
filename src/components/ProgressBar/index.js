@@ -3,8 +3,8 @@ import {
   ProgressBarLostContainer,
   ProgressBarText,
   ProgressBarWinContainer,
-  ThumbStyled,
-} from "./ProgressBar.styles";
+  ThumbStyled
+} from './ProgressBar.styles';
 
 function ProgressBar(props) {
   return (

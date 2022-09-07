@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Thumb from "../Thumb";
+import styled from 'styled-components';
+import Thumb from '../Thumb';
 
 const ProgressBarCommonContainer = () => `
   display: flex;
@@ -7,18 +7,18 @@ const ProgressBarCommonContainer = () => `
 `;
 
 export const ProgressBarContainer = styled.div`
-  height: ${(props) => (props.height ? props.height : "46px")};
+  height: ${(props) => (props.height ? props.height : '46px')};
   display: flex;
 `;
 
 export const ProgressBarWinContainer = styled.div`
-  width: ${(props) => (props.width ? props.width : "0%")};
+  width: ${(props) => (props.width ? props.width : '0%')};
   background-color: rgba(var(--color-green-positive), 0.8);
   ${ProgressBarCommonContainer()};
 `;
 
 export const ProgressBarLostContainer = styled.div`
-  width: ${(props) => (props.width ? props.width : "0%")};
+  width: ${(props) => (props.width ? props.width : '0%')};
   background-color: rgba(var(--color-yellow-negative), 0.8);
   ${ProgressBarCommonContainer()};
 `;

@@ -1,4 +1,4 @@
-import { GrayButtonStyled } from "./GrayButton.styles";
+import { GrayButtonStyled } from './GrayButton.styles';
 
 function GrayButton(props) {
   return (

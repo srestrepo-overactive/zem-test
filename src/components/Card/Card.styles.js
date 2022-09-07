@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Thumb from "../Thumb";
+import styled from 'styled-components';
+import Thumb from '../Thumb';
 
 const commonStylesThumb = () => `width: 40px;
 height: 40px;
@@ -20,11 +20,11 @@ export const CardContainer = styled.div`
   border: 1px solid black;
   margin-bottom: 20px;
   background-color: gray;
-  ${(props) => (props.typeChooseView === "grid" ? cardContainerGridStyles() : null)}
+  ${(props) => (props.typeChooseView === 'grid' ? cardContainerGridStyles() : null)}
 `;
 
 export const ThumbStyled = styled(Thumb)`
-  border: ${(props) => (props.checked ? "3px solid white" : "none")};
+  border: ${(props) => (props.checked ? '3px solid white' : 'none')};
   ${commonStylesThumb()}
   cursor: pointer;
 `;
@@ -36,7 +36,7 @@ export const StyledThumbWinner = styled(Thumb)`
 export const CardBodyContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  ${(props) => (props.typeChooseView === "grid" ? bodyGridStyles() : null)}
+  ${(props) => (props.typeChooseView === 'grid' ? bodyGridStyles() : null)}
 `;
 
 export const CardLeftSide = styled.div`
@@ -65,7 +65,7 @@ export const CardRightSide = styled.div`
 export const CardActions = styled.div`
   display: flex;
   gap: 10px;
-  ${(props) => (props.typeChooseView === "grid" ? actionGridStyles() : null)}
+  ${(props) => (props.typeChooseView === 'grid' ? actionGridStyles() : null)}
 `;
 
 export const CardThumbsContainer = styled.div`
