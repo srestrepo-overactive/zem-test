@@ -1,7 +1,6 @@
 import { getPercentageByTwoNumbers } from "../../utils";
 import GrayButton from "../GrayButton";
 import ProgressBar from "../ProgressBar";
-import Thumb from "../Thumb";
 import {
   CardActions,
   CardBodyContainer,
