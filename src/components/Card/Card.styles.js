@@ -5,21 +5,22 @@ const commonStylesThumb = () => `width: 40px;
 height: 40px;
 padding: 8px;`;
 
-const gridStyles = () => `display: grid;
-    grid-template-columns: 350px 350px 350px;
-    grid-gap: 31px;
-`;
-
 const bodyGridStyles = () => `justify-content: space-between;
 flex-direction: column;`;
 
 const actionGridStyles = () => `align-items: self-end;`;
 
+const cardContainerGridStyles = () => `
+display: flex;
+flex-direction: column;
+    justify-content: space-between;
+`;
+
 export const CardContainer = styled.div`
   border: 1px solid black;
   margin-bottom: 20px;
   background-color: gray;
-  ${(props) => (props.typeChooseView === "grid" ? gridStyles() : null)}
+  ${(props) => (props.typeChooseView === "grid" ? cardContainerGridStyles() : null)}
 `;
 
 export const ThumbStyled = styled(Thumb)`
@@ -35,6 +36,7 @@ export const StyledThumbWinner = styled(Thumb)`
 export const CardBodyContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  ${(props) => (props.typeChooseView === "grid" ? bodyGridStyles() : null)}
 `;
 
 export const CardLeftSide = styled.div`
@@ -63,6 +65,7 @@ export const CardRightSide = styled.div`
 export const CardActions = styled.div`
   display: flex;
   gap: 10px;
+  ${(props) => (props.typeChooseView === "grid" ? actionGridStyles() : null)}
 `;
 
 export const CardThumbsContainer = styled.div`

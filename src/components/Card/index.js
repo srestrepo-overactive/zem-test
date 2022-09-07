@@ -93,14 +93,14 @@ function Card(props) {
 
   return (
     <CardContainer typeChooseView={props.typeChooseView}>
-      <CardBodyContainer>
+      <CardBodyContainer typeChooseView={props.typeChooseView}>
         <CardLeftSide>
           {renderThumbWinner()}
           {renderText()}
         </CardLeftSide>
         <CardRightSide>
           {renderInfoVote()}
-          <CardActions>
+          <CardActions typeChooseView={props.typeChooseView}>
             {renderThumbs()}
             {renderGrayButton()}
           </CardActions>

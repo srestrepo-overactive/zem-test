@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import Card from "../../components/Card/index";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import { useGetCelebrities } from "../../customHooks/celebrities/useGetCelebrities";
+import { CardListContainer } from "./CartList.styles";
 const data = require("../../models/celebrities/index.json");
 
 function CardList() {
@@ -15,7 +16,6 @@ function CardList() {
   // const { dataServer, isLoadingServer, setDataServer } = useGetCelebrities(
   //   "https://snes4alom3.execute-api.us-east-1.amazonaws.com/get-celebrities"
   // );
-
 
   const handlerVotes = (vote, positiveVote, negativeVote) => {
     const newState = dataServer.map((obj) => {
@@ -65,18 +65,20 @@ function CardList() {
     setDataServer(newState);
   };
 
-  const renderCards = () =>
-    dataServer.map((elem) => (
-      <Card
-        key={elem.name}
-        vote={elem}
-        handlerpositiveVote={() => handlerVotes(elem, true, false)}
-        handlerNegativeVote={() => handlerVotes(elem, false, true)}
-        typeChooseView={typeChooseView}
-        voteNow={() => voteNow(elem)}
-      />
-    ));
-
+  const renderCards = () => (
+    <CardListContainer typeChooseView={typeChooseView}>
+      {dataServer.map((elem) => (
+        <Card
+          key={elem.name}
+          vote={elem}
+          handlerpositiveVote={() => handlerVotes(elem, true, false)}
+          handlerNegativeVote={() => handlerVotes(elem, false, true)}
+          typeChooseView={typeChooseView}
+          voteNow={() => voteNow(elem)}
+        />
+      ))}
+    </CardListContainer>
+  );
   return <div>{isLoadingServer ? <p>Loading</p> : renderCards()}</div>;
 }
 
