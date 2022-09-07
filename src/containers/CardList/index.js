@@ -1,21 +1,14 @@
-import { useEffect, useState } from "react";
 import Card from "../../components/Card/index";
 import { useSelector } from "react-redux";
 import { useGetCelebrities } from "../../utils/customHooks/celebrities/useGetCelebrities";
 import { CardListContainer } from "./CartList.styles";
-const data = require("../../models/celebrities/index.json");
 
 function CardList() {
-  const isLoadingServer = false;
   const typeChooseView = useSelector((state) => state.chooseView.type);
-  const [dataServer, setDataServer] = useState([]);
-  useEffect(() => {
-    setDataServer(data.data);
-  }, []);
 
-  // const { dataServer, isLoadingServer, setDataServer } = useGetCelebrities(
-  //   "https://snes4alom3.execute-api.us-east-1.amazonaws.com/get-celebrities"
-  // );
+  const { dataServer, isLoadingServer, setDataServer } = useGetCelebrities(
+    "https://snes4alom3.execute-api.us-east-1.amazonaws.com/get-celebrities", true
+  );
 
   const handlerVotes = (vote, positiveVote, negativeVote) => {
     const newState = dataServer.map((obj) => {
