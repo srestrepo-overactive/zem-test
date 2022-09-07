@@ -23,7 +23,7 @@ describe(`CardList`, () => {
 
   test(`It should show 'The name'`, () => {
     render(renderCard(defaultVoteObject()));
-    const element = screen.getByText(/The name/i);
+    const element = screen.getByText(/jajajajaj/i);
     expect(element).toBeInTheDocument();
   });
 
