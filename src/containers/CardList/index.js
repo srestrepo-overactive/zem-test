@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "../../components/Card/index";
 import { useSelector } from "react-redux";
-import { useGetCelebrities } from "../../customHooks/celebrities/useGetCelebrities";
+import { useGetCelebrities } from "../../utils/customHooks/celebrities/useGetCelebrities";
 import { CardListContainer } from "./CartList.styles";
 const data = require("../../models/celebrities/index.json");
 
