@@ -14,6 +14,7 @@ export const CardContainer = styled.div`
 export const ThumbStyled = styled(Thumb)`
   border: ${(props) => (props.checked ? "3px solid white" : "none")};
   ${commonStylesThumb()}
+  cursor: pointer;
 `;
 
 export const StyledThumbWinner = styled(Thumb)`
@@ -44,5 +45,17 @@ export const CardRightSide = styled.div`
 
 export const CardActions = styled.div`
   display: flex;
-  gap: 2px;
+  gap: 10px;
+`;
+
+export const CardThumbsContainer = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+export const ContainerInfoVote = styled.div`
+  span {
+    color: white;
+    font-weight: 500;
+  }
 `;

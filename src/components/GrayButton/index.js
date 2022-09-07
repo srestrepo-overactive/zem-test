@@ -1,8 +1,10 @@
+import { GrayButtonStyled } from "./GrayButton.styles";
+
 function GrayButton(props) {
   return (
-    <button {...props} onClick={props.onClick}>
+    <GrayButtonStyled {...props} onClick={props.onClick}>
       {props.children}
-    </button>
+    </GrayButtonStyled>
   );
 }
 

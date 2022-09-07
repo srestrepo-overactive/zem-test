@@ -2,7 +2,18 @@ import { getPercentageByTwoNumbers } from "../../utils";
 import GrayButton from "../GrayButton";
 import ProgressBar from "../ProgressBar";
 import Thumb from "../Thumb";
-import { CardActions, CardBodyContainer, CardContainer, CardLeftSide, CardRightSide, CardText, StyledThumbWinner, ThumbStyled } from "./Card.styles";
+import {
+  CardActions,
+  CardBodyContainer,
+  CardContainer,
+  CardLeftSide,
+  CardRightSide,
+  CardText,
+  CardThumbsContainer,
+  ContainerInfoVote,
+  StyledThumbWinner,
+  ThumbStyled,
+} from "./Card.styles";
 
 function Card(props) {
   const { vote } = props;
@@ -65,11 +76,21 @@ function Card(props) {
 
   const renderThumbs = () =>
     !vote.isVoteFinished && (
-      <div>
+      <CardThumbsContainer>
         {renderPositiveThumb()}
         {renderNegativeThumb()}
-      </div>
+      </CardThumbsContainer>
     );
+
+  const renderInfoVote = () => (
+    <ContainerInfoVote>
+      {vote.isVoteFinished ? (
+        <span>Thank you for your vote!</span>
+      ) : (
+        <span>Your opinion is important!</span>
+      )}
+    </ContainerInfoVote>
+  );
 
   return (
     <CardContainer>
@@ -79,7 +100,7 @@ function Card(props) {
           {renderText()}
         </CardLeftSide>
         <CardRightSide>
-          <div>24 moths for vote</div>
+          {renderInfoVote()}
           <CardActions>
             {renderThumbs()}
             {renderGrayButton()}
