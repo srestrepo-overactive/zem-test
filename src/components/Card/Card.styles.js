@@ -34,6 +34,12 @@ export const CardLeftSide = styled.div`
 
 export const CardText = styled.div`
   width: 80%;
+  h1 {
+    color: white;
+  }
+  p {
+    color: white;
+  }
 `;
 
 export const CardRightSide = styled.div`
