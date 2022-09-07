@@ -8,7 +8,7 @@ function CardList() {
 
   const { dataServer, isLoadingServer, setDataServer } = useGetCelebrities(
     'https://snes4alom3.execute-api.us-east-1.amazonaws.com/get-celebrities',
-    true
+    false
   );
 
   const handlerVotes = (vote, positiveVote, negativeVote) => {
