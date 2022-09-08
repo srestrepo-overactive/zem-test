@@ -60,7 +60,12 @@ UseState, useCallback, useRef, useEffect, CustomHook (fetch the data of server)
 
 
 PLUGINS USED IN PROJECT
-It was installed eslint and prettier in order to make npm run lint and check for syntax error code.
+It was installed eslint and prettier in order to make npm run lint and check for syntax error code. Styled components
+used
+
+
+TYPE OF STYLES
+styled components
 
 
 CI/CD
