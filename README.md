@@ -48,11 +48,11 @@ THe architecture of this project was created by following Containers component. 
 implemented you can check in utils  or Card component functions
 
 REDUX
-The behavior of thisis by selected the dropdown, list or grid, in that way it will change the type of view
+The behavior of this it's by selecting the dropdown and choose list or grid so in that way it will change the type of view
 sharing the state of the component Dropdown and CardView. Located in models/redux
 
 UNIT TEST
-There are some unit test located here in src\components\Card\Card.styles.js
+There are some unit test located here in src\components\Card\Card.test.js
 
 
 HOOKS USED
@@ -66,6 +66,6 @@ It was installed eslint and prettier in order to make npm run lint and check for
 CI/CD
 It was implemented something like a pipeline using github actions. 
 You can find the config file in github/workflows/main.yml.
-This run first the CI validating npm run test, npm run lind and once is success it deploys
+This run first the CI validating npm run test , npm run lint and once is success it deploys
 the app to git-hub pages
 
